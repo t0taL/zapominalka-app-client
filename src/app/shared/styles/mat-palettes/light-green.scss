@@ -1,0 +1,76 @@
+@import "~@angular/material/theming";
+
+
+$green-primary-palette: (
+  50: #eefbf5,
+  100: #d6f4e6,
+  200: #baedd6,
+  300: #9ee5c6,
+  400: #8ae0b9,
+  500: #75daad,
+  600: #6dd6a6,
+  700: #62d09c,
+  800: #58cb93,
+  900: #45c283,
+  A100: #216353,
+  A200: #216353,
+  A400: #216353,
+  A700: #216353,
+
+  contrast: (
+    50: #000000,
+    100: #000000,
+    200: #000000,
+    300: #000000,
+    400: #000000,
+    500: #000000,
+    600: #000000,
+    700: #000000,
+    800: #000000,
+    900: #000000,
+    A100: #216353,
+    A200: #216353,
+    A400: #216353,
+    A700: #216353,
+  )
+);
+
+$green-accent-palette: ( 
+  50: #fdfffc,
+  100: #fafff9,
+  200: #f6fff5,
+  300: #f2fff0,
+  400: #f0ffed,
+  500: #edffea,
+  600: #ebffe7,
+  700: #e8ffe4,
+  800: #e5ffe1,
+  900: #e0ffdb,
+  A100: #45c283,
+  A200: #45c283,
+  A400: #45c283,
+  A700: #45c283,
+
+  contrast: (
+    50: #000000,
+    100: #000000,
+    200: #000000,
+    300: #000000,
+    400: #000000,
+    500: #000000,
+    600: #000000,
+    700: #000000,
+    800: #000000,
+    900: #000000,
+    A100: #45c283,
+    A200: #45c283,
+    A400: #45c283,
+    A700: #45c283,
+  )
+);
+
+$light-green-primary: mat-palette($green-primary-palette);
+$light-green-accent: mat-palette($green-accent-palette, A200, A100, A400);
+$light-green-warn: mat-palette($mat-red);
+
+$light-green-theme: mat-light-theme($light-green-primary, $light-green-accent, $light-green-warn);

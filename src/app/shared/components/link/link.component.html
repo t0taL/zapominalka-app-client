@@ -1,0 +1,10 @@
+<a
+  mat-button
+  class="link mdt-pr-color"
+  [style.width]="maxWidth ? '100%' : ''"
+  [style.margin]="'.5rem 0'"
+  [disabled]="disabled"
+  (click)="click()"
+>
+  <ng-content></ng-content>
+</a>

@@ -1,0 +1,12 @@
+<div [formGroup]="group" class="radio-wrapper mdt-pr-color">
+  <mat-radio-group [formControlName]="field?.name" (change)="updateFormData()">
+    <mat-radio-button
+      *ngFor="let option of field?.attrs?.options"
+      [value]="option.value"
+      class="mdt-pr-border-color"
+      [style.width]="field?.attrs?.customWidth"
+    >
+      {{ option.viewValue }}
+    </mat-radio-button>
+  </mat-radio-group>
+</div>

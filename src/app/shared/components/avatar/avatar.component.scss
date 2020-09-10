@@ -1,0 +1,21 @@
+.avatar {
+  position: relative;
+  display: flex;
+  margin: 1rem auto;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  border: .2rem solid;
+  border-radius: 50%;
+  overflow: hidden;
+
+  img {
+    height: inherit;
+    width: inherit;
+    object-fit: cover;
+  }
+
+  span {
+    color: inherit;
+  }
+}

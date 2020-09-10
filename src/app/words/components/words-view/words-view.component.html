@@ -1,0 +1,39 @@
+<app-page-layout [isLoading]="(isLoading$ | async)">
+  <section content>
+    <app-searcher (searchEvent)="setSearchedValue($event)"></app-searcher>
+
+    <app-items-group title="New words" [itemsCount]="(newWords$ | async | searcher:searchedValue)?.length">
+      <app-word-item
+        *ngFor="let word of (newWords$ | async | searcher:searchedValue); trackBy:newWordsTrackByFn"
+        [word]="word"
+        [completeButton]="true"
+        (wordEditEvent)="editWord($event)"
+        (wordDeleteEvent)="openDeleteWordDialog($event)"
+        (wordCompleteEvent)="openCompleteWordDialog($event)"
+      >
+      </app-word-item>
+    </app-items-group>
+  
+    <app-items-group title="Completed words" [itemsCount]="(completedWords$ | async | searcher:searchedValue)?.length">
+      <app-word-item
+        *ngFor="let word of (completedWords$ | async | searcher:searchedValue); trackBy:completedWordsTrackByFn"
+        [word]="word"
+        [returnButton]="true"
+        (wordEditEvent)="editWord($event)"
+        (wordDeleteEvent)="openDeleteWordDialog($event)"
+        (wordReturnEvent)="openReturnWordDialog($event)"
+      >
+      </app-word-item>
+    </app-items-group>
+  </section>
+
+  <section actions>
+    <app-button
+      [maxWidth]="true"
+      [color]="colorTypes.PRIMARY"
+      (clickEvent)="addWord()"
+    >
+      Add word
+    </app-button>
+  </section>
+</app-page-layout>

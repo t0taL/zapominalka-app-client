@@ -1,0 +1,52 @@
+@import "src/app/shared/styles/variables";
+@import "src/app/shared/styles/mixins";
+
+
+:host {
+  flex: 1;
+  width: 100%;
+}
+
+.nav {
+  display: flex;
+  height: $nav-height;
+  padding: 0 2rem;
+  align-items: center;
+
+  &__item {
+    display: flex;
+    height: inherit;
+    padding: 0 1rem;
+    align-items: center;
+    justify-content: center;
+    transition-duration: 100ms;
+    @include link-button();
+  }
+}
+
+.in-header {
+  .nav__item {
+    mat-icon {
+      display: none;
+    }
+  
+    span {
+      text-transform: uppercase;
+    }
+  }
+}
+
+.in-footer {
+  position: relative;
+  padding: 0;
+  justify-content: space-around;
+  box-shadow: $mat-shadow-up;
+
+  .nav__item {
+    width: 100%;
+
+    span {
+      display: none;
+    }
+  }
+}

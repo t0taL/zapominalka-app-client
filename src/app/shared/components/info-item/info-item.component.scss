@@ -1,0 +1,22 @@
+.info-item {
+  display: flex;
+  height: 3.6rem;
+  width: 100%;
+  margin-top: 1rem;
+  border: .2rem solid;
+  border-radius: 5px;
+  font-size: 1.4rem;
+
+  &__title,
+  &__value {
+    display: flex;
+    height: 100%;
+    padding: 0 1rem;
+    align-items: center;
+  }
+
+  &__title {
+    border-right: .2rem solid;
+    border-color: inherit;
+  }
+}

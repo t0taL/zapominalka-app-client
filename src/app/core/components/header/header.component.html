@@ -1,0 +1,44 @@
+<header class="header mdt-pr-bg-color">
+  <div class="header__content">
+    <div class="header__content-title">
+      <span class="mdt-pr-color">zapominalka</span>
+    </div>
+
+    <ng-content></ng-content>
+
+    <div *ngIf="isLoggedIn" class="header__content-profile">
+      <div class="profile-name">
+        <span class="mdt-pr-color">{{ user?.name }}</span>
+      </div>
+
+      <app-avatar
+        size="4rem"
+        colorClass="mdt-pr-color"
+        bgColorClass="mdt-pr-color"
+        borderColorClass="mdt-pr-border-color"
+        [imageSrc]="user?.avatar"
+        [matMenuTriggerFor]="matMenu"
+      >
+      </app-avatar>
+    </div>
+
+    <div *ngIf="!isLoggedIn" class="header__content-actions">
+      <app-button
+        [color]="colorTypes.BASIC"
+        [routerLink]="['/auth', 'sign-in']"
+      >
+        Sign in
+      </app-button>
+
+      <app-link [routerLink]="['/auth', 'sign-up']">Sign up</app-link>
+    </div>
+  </div>
+</header>
+
+<mat-menu #matMenu class="mdt-pr-bg-color">
+  <button mat-menu-item (click)="logout()">
+    <mat-icon class="mdt-pr-color">exit_to_app</mat-icon>
+
+    <span class="mdt-pr-color">Logout</span>
+  </button>
+</mat-menu>

@@ -1,0 +1,39 @@
+<app-page-layout>
+  <section content>
+    <app-items-group title="Correctly translated words" [itemsCount]="(correctlyTranslatedWords$ | async)?.length">
+      <app-word-item
+        *ngFor="let word of (correctlyTranslatedWords$ | async)"
+        [word]="word"
+        [withoutActions]="true"
+      >
+      </app-word-item>
+    </app-items-group>
+  
+    <app-items-group title="Incorrectly translated words" [itemsCount]="(incorrectlyTranslatedWords$ | async)?.length">
+      <app-word-item
+        *ngFor="let word of (incorrectlyTranslatedWords$ | async)"
+        [word]="word"
+        [withoutActions]="true"
+      >
+      </app-word-item>
+    </app-items-group>
+  </section>
+
+  <section actions>
+    <app-button
+      [maxWidth]="true"
+      [color]="colorTypes.PRIMARY"
+      [routerLink]="['/learn', 'start-menu']"
+    >
+      Learn again
+    </app-button>
+    
+    <app-button
+      [maxWidth]="true"
+      [color]="colorTypes.PRIMARY"
+      [routerLink]="['/home']"
+    >
+      Complete learning
+    </app-button>
+  </section>
+</app-page-layout>

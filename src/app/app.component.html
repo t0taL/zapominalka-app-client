@@ -1,0 +1,29 @@
+<div class="content-wrapper">
+  <app-header
+    [isLoggedIn]="(isLoggedIn$ | async)"
+    [user]="(user$ | async)"
+    (logoutEvent)="logout()"
+  >
+    <app-navigation
+      *ngIf="(screenWidth$ | async) > 820 && (isLoggedIn$ | async)"
+      [navLocation]="navLocationTypes.IN_HEADER"
+    >
+    </app-navigation>
+  </app-header>
+  
+  <perfect-scrollbar [@routeAnimation]="prepareRoute(outlet)">
+    <router-outlet #outlet="outlet"></router-outlet>
+  </perfect-scrollbar>
+
+  <app-navigation
+    *ngIf="(screenWidth$ | async) < 820 && (isLoggedIn$ | async)"
+    [navLocation]="navLocationTypes.IN_FOOTER"
+  >
+  </app-navigation>
+</div>
+
+<app-background-animation
+  [screenWidth]="(screenWidth$ | async)"
+  [screenHeight]="(screenHeight$ | async)"
+>
+</app-background-animation>

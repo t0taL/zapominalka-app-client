@@ -1,0 +1,77 @@
+@import "~@angular/material/theming";
+@import "app/shared/styles/mixins";
+
+@import "app/shared/styles/mat-palettes/light-default";
+@import "app/shared/styles/mat-palettes/dark-default";
+
+@import "app/shared/styles/mat-palettes/light-green";
+@import "app/shared/styles/mat-palettes/dark-green";
+
+@import "app/shared/styles/mat-palettes/light-blue";
+@import "app/shared/styles/mat-palettes/dark-blue";
+
+@import "app/shared/styles/mat-palettes/light-yellow";
+@import "app/shared/styles/mat-palettes/dark-yellow";
+
+@import "app/shared/styles/mat-palettes/light-red";
+@import "app/shared/styles/mat-palettes/dark-red";
+
+
+
+@include mat-core();
+
+// default themes
+.light-default-theme {
+  @include angular-material-theme($light-default-theme);
+  @include mat-dynamic-theme($light-default-theme);
+}
+
+.dark-default-theme {
+  @include angular-material-theme($dark-default-theme);
+  @include mat-dynamic-theme($dark-default-theme);
+}
+
+
+// green themes
+.light-green-theme {
+  @include angular-material-theme($light-green-theme);
+  @include mat-dynamic-theme($light-green-theme);
+}
+
+.dark-green-theme {
+  @include angular-material-theme($dark-green-theme);
+  @include mat-dynamic-theme($dark-green-theme);
+}
+
+// blue themes
+.light-blue-theme {
+  @include angular-material-theme($light-blue-theme);
+  @include mat-dynamic-theme($light-blue-theme);
+}
+
+.dark-blue-theme {
+  @include angular-material-theme($dark-blue-theme);
+  @include mat-dynamic-theme($dark-blue-theme);
+}
+
+// yellow themes
+.light-yellow-theme {
+  @include angular-material-theme($light-yellow-theme);
+  @include mat-dynamic-theme($light-yellow-theme);
+}
+
+.dark-yellow-theme {
+  @include angular-material-theme($dark-yellow-theme);
+  @include mat-dynamic-theme($dark-yellow-theme);
+}
+
+// red themes
+.light-red-theme {
+  @include angular-material-theme($light-red-theme);
+  @include mat-dynamic-theme($light-red-theme);
+}
+
+.dark-red-theme {
+  @include angular-material-theme($dark-red-theme);
+  @include mat-dynamic-theme($dark-red-theme);
+}

@@ -1,0 +1,10 @@
+:host {
+  width: 100%;
+}
+
+.form {
+  display: flex;
+  width: inherit;
+  padding-top: 1rem;
+  flex-direction: column;
+}

@@ -1,0 +1,38 @@
+<app-page-layout [isLoading]="(isLoading$ | async)">
+  <section content>
+    <div class="words-count mdt-pr-color mdt-ac-bg-color mdt-pr-border-color">
+      <span>Ready to learn words: {{ (wordsCount$ | async) }}</span>
+
+      <span *ngIf="!(wordsCount$ | async)">You need to add new words</span>
+    </div>
+  </section>
+
+  <section actions>
+    <app-button
+      *ngIf="!(wordsCount$ | async); else learnModes"
+      [maxWidth]="true"
+      [color]="colorTypes.PRIMARY"
+      [routerLink]="['/words', 'add']"
+    >
+      Add new word
+    </app-button>
+
+    <ng-template #learnModes>
+      <app-button
+        [maxWidth]="true"
+        [color]="colorTypes.PRIMARY"
+        (clickEvent)="startSimpleLearning()"
+      >
+        Simple mode
+      </app-button>
+      
+      <app-button
+        [maxWidth]="true"
+        [color]="colorTypes.PRIMARY"
+        (clickEvent)="startTimingLearning()"
+      >
+        Timing mode
+      </app-button>
+    </ng-template>
+  </section>
+</app-page-layout>

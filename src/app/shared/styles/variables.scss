@@ -1,0 +1,17 @@
+// sizes
+
+$header-height: 5rem;
+$nav-height: $header-height;
+$max-header-width: 128rem;
+$max-content-width: 30rem;
+
+// colors
+
+$error-color: #f44336;
+$correct-color: #1eb980;
+
+// shadows
+
+$mat-shadow-1: 0 .1rem .3rem rgba(0,0,0,0.12), 0 .1rem .2rem rgba(0,0,0,0.24);
+$mat-shadow-up: 0 -.3rem .5rem -.1rem rgba(0,0,0,.2), 0 -.6rem 1rem 0 rgba(0,0,0,.14), 0 -.1rem 1.8rem 0 rgba(0,0,0,.12);
+$mat-shadow-down: 0 .3rem .5rem -.1rem rgba(0,0,0,.2), 0 .6rem 1rem 0 rgba(0,0,0,.14), 0 .1rem 1.8rem 0 rgba(0,0,0,.12);

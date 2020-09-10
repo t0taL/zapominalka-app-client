@@ -1,0 +1,76 @@
+@import "~@angular/material/theming";
+
+
+$blue-primary-palette: (
+  50: #ebf2fa,
+  100: #cddff2,
+  200: #acc9ea,
+  300: #8ab3e1,
+  400: #71a3da,
+  500: #5893d4,
+  600: #508bcf,
+  700: #4780c9,
+  800: #3d76c3,
+  900: #2d64b9,
+  A100: #ceddef,
+  A200: #ceddef,
+  A400: #ceddef,
+  A700: #ceddef,
+
+  contrast: (
+    50: #000000,
+    100: #000000,
+    200: #000000,
+    300: #000000,
+    400: #000000,
+    500: #000000,
+    600: #000000,
+    700: #ffffff,
+    800: #ffffff,
+    900: #ffffff,
+    A100: #ceddef,
+    A200: #ceddef,
+    A400: #ceddef,
+    A700: #ceddef,
+  )
+);
+
+$blue-accent-palette: ( 
+  50: #e1e2eb,
+  100: #b5b6cd,
+  200: #8386ac,
+  300: #51568b,
+  400: #2c3172,
+  500: #070d59,
+  600: #060b51,
+  700: #050948,
+  800: #04073e,
+  900: #02032e,
+  A100: #5893d4,
+  A200: #5893d4,
+  A400: #5893d4,
+  A700: #5893d4,
+
+  contrast: (
+    50: #000000,
+    100: #000000,
+    200: #000000,
+    300: #000000,
+    400: #000000,
+    500: #ffffff,
+    600: #ffffff,
+    700: #ffffff,
+    800: #ffffff,
+    900: #ffffff,
+    A100: #5893d4,
+    A200: #5893d4,
+    A400: #5893d4,
+    A700: #5893d4,
+  )
+);
+
+$dark-blue-primary: mat-palette($blue-primary-palette);
+$dark-blue-accent: mat-palette($blue-accent-palette, A200, A100, A400);
+$dark-blue-warn: mat-palette($mat-red);
+
+$dark-blue-theme: mat-dark-theme($dark-blue-primary, $dark-blue-accent, $dark-blue-warn);

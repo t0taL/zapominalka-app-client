@@ -1,0 +1,12 @@
+@import "src/app/shared/styles/variables";
+@import "src/app/shared/styles/mixins";
+
+
+:host {
+  height: inherit;
+  margin-left: auto;
+}
+
+.timer {
+  @include progress-bar-item(null);
+}

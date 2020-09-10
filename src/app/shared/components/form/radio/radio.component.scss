@@ -1,0 +1,16 @@
+@import "src/app/shared/styles/variables";
+
+.radio-wrapper {
+  padding: 1rem 0;
+  font-weight: 500;
+}
+
+.mat-radio-group {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.mat-radio-button {
+  padding-right: 1rem;
+  margin: .2rem 0;
+}

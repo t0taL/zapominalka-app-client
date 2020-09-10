@@ -1,0 +1,31 @@
+@import "src/app/shared/styles/variables";
+@import "src/app/shared/styles/mixins";
+
+
+:host {
+  width: 100%;
+}
+
+.progress-bar {
+  display: flex;
+  height: 3.6rem;
+  margin-bottom: 2.5rem;
+
+  &__success {
+    @include progress-bar-item($correct-color);
+  }
+
+  &__fail {
+    @include progress-bar-item($error-color);
+  }
+
+  &__left {
+    @include progress-bar-item(null);
+  }
+
+  &__sounds {
+    margin-left: auto;
+    @include progress-bar-item(null);
+    @include link-button;
+  }
+}

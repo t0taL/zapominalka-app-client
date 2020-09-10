@@ -1,0 +1,37 @@
+@import "src/app/shared/styles/variables";
+@import "src/app/shared/styles/mixins";
+
+
+:host {
+  width: 100%;
+}
+
+.items-group {
+  width: inherit;
+  margin-bottom: 1rem;
+
+  &__title {
+    display: flex;
+    height: 3.6rem;
+    padding: 0 2rem;
+    margin-bottom: 1rem;
+    align-items: center;
+    justify-content: space-between;
+    border: .2rem solid;
+    border-radius: .5rem;
+    font-size: 1.6rem;
+    @include link-button;
+  }
+
+  &__content {
+    height: 100%;
+    max-height: 30vh;
+    padding: 0 1.5rem;
+  }
+}
+
+.no-content {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}

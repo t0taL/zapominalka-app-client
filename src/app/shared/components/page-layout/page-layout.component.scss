@@ -1,0 +1,32 @@
+@import "../../styles/variables.scss";
+
+
+:host {
+  height: 100%;
+  width: 100%;
+}
+
+.wrapper {
+  display: flex;
+  height: inherit;
+  align-items: center;
+  justify-content: center;
+
+  .page-layout {
+    display: flex;
+    width: 100%;
+    padding-top: 1rem;
+    max-width: $max-content-width;
+    flex-direction: column;
+    align-items: center;
+
+    &__content {
+      width: inherit;
+    }
+
+    &__actions {
+      width: inherit;
+      padding: 1rem 0;
+    }
+  }
+}

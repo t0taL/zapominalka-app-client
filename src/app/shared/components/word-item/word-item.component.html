@@ -1,0 +1,43 @@
+<div class="word-item mdt-pr-border-color">
+  <div class="word-item__main-content mdt-pr-color mdt-ac-bg-color">
+    <div class="word-item__main-content__locale">
+      <span>{{ word.locale }}</span>
+    </div>
+  
+    <div class="word-item__main-content__value">
+      <span [matTooltip]="word.value">{{ word.value }}</span>
+
+      &nbsp;<span>({{ word.repeatCount }})</span>
+    </div>
+
+    <div class="word-item__main-content__actions mdt-pr-bg-color">
+      <div (click)="toggleExtContentState()">
+        <mat-icon>{{ isExtContentOpened ? 'keyboard_arrow_down' : 'keyboard_arrow_left' }}</mat-icon>
+      </div>
+    </div>
+  </div>
+
+  <div *ngIf="isExtContentOpened" [@wordItemAnimation] class="word-item__ext-content mdt-pr-color">
+    <div *ngFor="let translation of word.translation" class="word-item__ext-content__translation mdt-ac-bg-color">
+      <span>{{ translation }}</span>
+    </div>
+
+    <div *ngIf="!withoutActions" class="word-item__ext-content__actions mdt-pr-bg-color">
+      <div matTooltip="Edit" (click)="editWord()">
+        <mat-icon>edit</mat-icon>
+      </div>
+
+      <div *ngIf="completeButton" matTooltip="Complete" (click)="completeWord()">
+        <mat-icon>done</mat-icon>
+      </div>
+
+      <div *ngIf="returnButton" matTooltip="Repeat" (click)="returnWord()">
+        <mat-icon>replay</mat-icon>
+      </div>
+
+      <div matTooltip="Delete" (click)="deleteWord()">
+        <mat-icon>delete</mat-icon>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,29 @@
+<div class="progress-bar">
+  <div class="progress-bar__success" matTooltip="Success">
+    <mat-icon>check_circle_outline</mat-icon>
+
+    <span>{{ successCount }}</span>
+  </div>
+
+  <div class="progress-bar__fail" matTooltip="Fail">
+    <mat-icon>highlight_off</mat-icon>
+
+    <span>{{ failCount }}</span>
+  </div>
+
+  <div class="progress-bar__left mdt-pr-color" matTooltip="Left">
+    <mat-icon>folder</mat-icon>
+    
+    <span>{{ totalCount }}</span>
+  </div>
+
+  <ng-content></ng-content>
+
+  <div
+    class="progress-bar__sounds mdt-pr-color"
+    matTooltip="Mute/Unmute sounds"
+    (click)="muteSounds(!isSoundsMuted)"
+  >
+    <mat-icon>{{ isSoundsMuted ? 'volume_off' : 'volume_up'}}</mat-icon>
+  </div>
+</div>

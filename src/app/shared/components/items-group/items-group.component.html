@@ -1,0 +1,15 @@
+<div class="items-group">
+  <div class="items-group__title mdt-pr-color mdt-pr-bg-color" (click)="toggleGroupState()">
+    <span>{{ title }}</span>
+
+    <span>{{ itemsCount }}</span>
+  </div>
+
+  <perfect-scrollbar *ngIf="isGroupOpened" [@itemsGroupAnimation] class="items-group__content">
+    <ng-content></ng-content>
+
+    <div *ngIf="itemsCount < 1" class="no-content mdt-pr-color">
+      <span>Empty</span>
+    </div>
+  </perfect-scrollbar>
+</div>

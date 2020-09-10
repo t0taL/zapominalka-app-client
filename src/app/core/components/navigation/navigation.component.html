@@ -1,0 +1,12 @@
+<nav [class]="'nav mdt-pr-color mdt-pr-bg-color ' + navLocation">
+  <div
+    *ngFor="let navItem of navItems"
+    [routerLink]="[ navItem.path ]"
+    routerLinkActive="active"
+    class="nav__item mdt-pr-hover mdt-pr-active"
+  >
+    <mat-icon>{{ navItem.icon }}</mat-icon>
+
+    <span>{{ navItem.title }}</span>
+  </div>
+</nav>

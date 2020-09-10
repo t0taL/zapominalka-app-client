@@ -1,0 +1,19 @@
+<app-page-layout [isLoading]="(isLoading$ | async)">
+  <section content>
+    <app-info-item name="Repeat count"  titleWidth="36%" [value]="(settings$ | async)?.repeatCount"></app-info-item>
+  
+    <app-info-item name="Timer count"  titleWidth="36%" [value]="(settings$ | async)?.timerCount"></app-info-item>
+    
+    <app-info-item name="Theme"  titleWidth="36%" [value]="getThemeName((settings$ | async)?.theme)"></app-info-item>
+  </section>
+
+  <section actions>
+    <app-button
+      [maxWidth]="true"
+      [color]="colorTypes.PRIMARY"
+      [routerLink]="['/settings', 'edit']"
+    >
+      Edit settings
+    </app-button>
+  </section>
+</app-page-layout>

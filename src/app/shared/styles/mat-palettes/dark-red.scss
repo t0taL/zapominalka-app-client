@@ -1,0 +1,76 @@
+@import "~@angular/material/theming";
+
+
+$red-primary-palette: (
+  50: #fee7eb,
+  100: #fdc3cd,
+  200: #fb9cac,
+  300: #f9748b,
+  400: #f85672,
+  500: #f73859,
+  600: #f63251,
+  700: #f52b48,
+  800: #f3243e,
+  900: #f1172e,
+  A100: #ededed,
+  A200: #ededed,
+  A400: #ededed,
+  A700: #ededed,
+
+  contrast: (
+    50: #000000,
+    100: #000000,
+    200: #000000,
+    300: #000000,
+    400: #ffffff,
+    500: #ffffff,
+    600: #ffffff,
+    700: #ffffff,
+    800: #ffffff,
+    900: #ffffff,
+    A100: #ededed,
+    A200: #ededed,
+    A400: #ededed,
+    A700: #ededed,
+  )
+);
+
+$red-accent-palette: ( 
+  50: #e5e5e6,
+  100: #bdbfc1,
+  200: #919498,
+  300: #65696f,
+  400: #444950,
+  500: #232931,
+  600: #1f242c,
+  700: #1a1f25,
+  800: #15191f,
+  900: #0c0f13,
+  A100: #f1172e,
+  A200: #f1172e,
+  A400: #f1172e,
+  A700: #f1172e,
+
+  contrast: (
+    50: #000000,
+    100: #000000,
+    200: #000000,
+    300: #ffffff,
+    400: #ffffff,
+    500: #ffffff,
+    600: #ffffff,
+    700: #ffffff,
+    800: #ffffff,
+    900: #ffffff,
+    A100: #f1172e,
+    A200: #f1172e,
+    A400: #f1172e,
+    A700: #f1172e,
+  )
+);
+
+$dark-red-primary: mat-palette($red-primary-palette);
+$dark-red-accent: mat-palette($red-accent-palette, A200, A100, A400);
+$dark-red-warn: mat-palette($mat-red);
+
+$dark-red-theme: mat-dark-theme($dark-red-primary, $dark-red-accent, $dark-red-warn);

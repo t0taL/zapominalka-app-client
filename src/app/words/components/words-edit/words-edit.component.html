@@ -1,0 +1,23 @@
+<app-page-layout [isLoading]="(isLoading$ | async)">
+  <section content>
+    <app-form #form [fields]="fields" [data$]="data$"></app-form>
+  </section>
+
+  <section actions>
+    <app-button
+      [maxWidth]="true"
+      [color]="colorTypes.PRIMARY"
+      [disabled]="!form.form.dirty || !form.form.valid"
+      (clickEvent)="editWord()"
+    >
+      Edit word
+    </app-button>
+    
+    <app-link
+      [maxWidth]="true"
+      [routerLink]="['/words']"
+    >
+      Cancel
+    </app-link>
+  </section>
+</app-page-layout>

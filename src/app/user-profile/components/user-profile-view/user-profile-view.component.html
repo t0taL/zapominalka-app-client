@@ -1,0 +1,34 @@
+<app-page-layout [isLoading]="(isLoading$ | async)">
+  <section content>
+    <app-avatar
+      size="20rem"
+      colorClass="mdt-pr-color"
+      bgColorClass="mdt-ac-bg-color"
+      borderColorClass="mdt-pr-border-color"
+      [imageSrc]="(userProfile$ | async)?.avatar"
+    >
+    </app-avatar>
+
+    <app-info-item name="Name" titleWidth="20%" [value]="(userProfile$ | async)?.name"></app-info-item>
+
+    <app-info-item name="Email" titleWidth="20%" [value]="(userProfile$ | async)?.email"></app-info-item>
+  </section>
+
+  <section actions>
+    <app-button
+      [maxWidth]="true"
+      [color]="colorTypes.PRIMARY"
+      [routerLink]="['/user-profile', 'edit']"
+    >
+      Edit profile
+    </app-button>
+
+    <app-button
+      [maxWidth]="true"
+      [color]="colorTypes.PRIMARY"
+      [routerLink]="['/user-profile', 'change-password']"
+    >
+      Change password
+    </app-button>
+  </section>
+</app-page-layout>

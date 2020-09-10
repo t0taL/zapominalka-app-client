@@ -1,0 +1,12 @@
+<div
+  [style.width]="size"
+  [style.height]="size"
+  [ngClass]="[colorClass, bgColorClass, borderColorClass]"
+  class="avatar"
+>
+  <img #viewImage *ngIf="imageSrc; else noAvatar" [src]="imageSrc" alt="">
+
+  <ng-template #noAvatar>
+    <span [style.fontSize]="size">?</span>
+  </ng-template>
+</div>

@@ -1,0 +1,19 @@
+<div #wrapper class="wrapper">
+  <div *ngIf="isLoading; then loading; else content"></div>
+
+  <ng-template #content>
+    <div #pageLayout class="page-layout">
+      <div class="page-layout__content">
+        <ng-content select="[content]"></ng-content>
+      </div>
+    
+      <div class="page-layout__actions">
+        <ng-content select="[actions]"></ng-content>
+      </div>
+    </div>
+  </ng-template>
+
+  <ng-template #loading>
+    <mat-spinner diameter="150"></mat-spinner>
+  </ng-template>
+</div>

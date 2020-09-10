@@ -1,0 +1,21 @@
+<mat-form-field class="mdt-pr-color mdt-ac-bg-color mdt-pr-border-color">
+  <input
+    #input
+    matInput
+    type="text"
+    autocomplete="off"
+    placeholder="Search..."
+    (keyup)="search()"
+    (paste)="search()"
+  >
+
+  <button
+    matSuffix
+    mat-button
+    mat-icon-button
+    *ngIf="input.value"
+    (click)="clear()"
+  >
+    <mat-icon>close</mat-icon>
+  </button>
+</mat-form-field>

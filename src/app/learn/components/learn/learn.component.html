@@ -1,0 +1,58 @@
+<app-page-layout>
+  <section content>
+    <app-progress-bar
+      [successCount]="(correctlyTranslatedWords$ | async)?.length"
+      [failCount]="(incorrectlyTranslatedWords$ | async)?.length"
+      [totalCount]="(words$ | async)?.length"
+      [isSoundsMuted]="(isSoundsMuted$ | async)"
+      (muteSoundsEvent)="muteSounds($event)"
+    >
+      <app-timer
+        *ngIf="(mode$ | async) === learnMode.TIMING"
+        [status$]="status$"
+        [timerCount]="(settings$ | async)?.timerCount"
+        (timerStopEvent)="checkTranslate(form)"
+      >
+      </app-timer>
+    </app-progress-bar>
+  
+    <div class="word" [ngSwitch]="(status$ | async)">
+      <span class="mdt-pr-color" *ngSwitchCase="learnStatus.PENDING">{{ (currentWord$ | async)?.value }}</span>
+  
+      <span class="word__success-status" *ngSwitchCase="learnStatus.SUCCESS">{{ (currentWord$ | async)?.value }}</span>
+  
+      <span class="word__fail-status" *ngSwitchCase="learnStatus.FAIL">{{ (currentWord$ | async)?.value }}</span>
+    </div>
+  
+    <app-form #form [fields]="fields"></app-form>
+  </section>
+
+  <section actions>
+    <app-button
+      [maxWidth]="true"
+      [color]="colorTypes.PRIMARY"
+      [disabled]="!form.form.dirty || !form.form.valid || (status$ | async) !== learnStatus.PENDING"
+      (clickEvent)="checkTranslate(form)"
+    >
+      Check
+    </app-button>
+
+    <app-button
+      [maxWidth]="true"
+      [color]="colorTypes.PRIMARY"
+      [disabled]="(status$ | async) !== learnStatus.PENDING"
+      (clickEvent)="skipCurrentWord(form)"
+    >
+      Skip
+    </app-button>
+
+    <app-button
+      [maxWidth]="true"
+      [color]="colorTypes.PRIMARY"
+      [disabled]="(status$ | async) !== learnStatus.PENDING"
+      (clickEvent)="endLearning(form)"
+    >
+      End
+    </app-button>
+  </section>
+</app-page-layout>

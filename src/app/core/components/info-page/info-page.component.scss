@@ -1,0 +1,16 @@
+@import 'src/app/shared/styles/mixins';
+
+
+:host {
+  @include host-container;
+}
+
+.info-message {
+  padding: 1rem;
+  border: .2rem solid;
+  border-radius: .5rem;
+
+  span {
+    text-align: center;
+  }
+}

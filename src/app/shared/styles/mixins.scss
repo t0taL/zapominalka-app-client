@@ -1,0 +1,68 @@
+@mixin host-container {
+  display: inherit;
+  width: 100%;
+  height: inherit;
+}
+
+@mixin long-text-hide {
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+}
+
+@mixin link-button {
+  user-select: none; 
+  cursor: pointer;
+
+  &:focus,
+  &:active {
+    outline: none;
+  }
+}
+
+@mixin progress-bar-item($color) {
+  display: flex;
+  height: inherit;
+  margin-right: .5rem;
+  align-items: center;
+  justify-content: center;
+  @if $color {
+    color: $color
+  }
+
+  mat-icon {
+    font-size: 2.5rem;
+  }
+
+  span {
+    margin: 0 .5rem;
+    font-size: 3rem;
+  }
+}
+
+//  custom theme
+@mixin mat-dynamic-theme($theme) {
+  $color: mat-get-color-config($theme);
+  $primary: map-get($color, primary);
+  $accent: map-get($color, accent);
+
+  .mdt-pr-color { color: mat-color($primary, A100) !important; }
+
+  .mdt-ac-color { color: mat-color($accent, A100) !important; }
+
+  .mdt-pr-bg-color { background-color: mat-color($primary) !important; }
+
+  .mdt-ac-bg-color { background-color: mat-color($accent, 900) !important; }
+
+  .mdt-pr-hover:hover { background-color: mat-color($accent, 700) !important; }
+
+  .mdt-ac-hover:hover { background-color: mat-color($primary, 700) !important; }
+
+  .mdt-pr-active.active { background-color: mat-color($accent, 900) !important; }
+
+  .mdt-ac-active.active { background-color: mat-color($primary, 900) !important; }
+
+  .mdt-pr-border-color { border-color: mat-color($primary, A100) !important; }
+
+  .mdt-ac-border-color { border-color: mat-color($accent, A100) !important; }
+}

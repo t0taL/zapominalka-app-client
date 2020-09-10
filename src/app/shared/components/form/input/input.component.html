@@ -1,0 +1,74 @@
+<mat-form-field [formGroup]="group" class="mdt-pr-color">
+  <mat-label>{{ field?.label }}</mat-label>
+
+  <input
+    matInput
+    #inputElement
+    [type]="field?.attrs?.type || 'text'"
+    [formControlName]="field?.name"
+    [required]="field?.attrs?.required"
+    [placeholder]="field?.attrs?.placeholder"
+    (keyup)="updateFormData()"
+    (paste)="updateFormData()"
+  >
+
+  <button
+    mat-button
+    matSuffix
+    mat-icon-button
+    tabindex="-1"
+    *ngIf="inputElement.value.length > 0 && field?.attrs?.clearButton"
+    (click)="clear()"
+  >
+    <mat-icon>close</mat-icon>
+  </button>
+
+  <mat-error *ngIf="group.controls[field.name].hasError('required')">
+    Field is not filled!
+  </mat-error>
+
+  <mat-error *ngIf="group.controls[field.name].hasError('maxlength')">
+    Field must contain less than {{ group.controls[field.name].getError('maxlength').requiredLength }} symbols! 
+    There is {{ group.controls[field.name].getError('maxlength').actualLength }} symbols now.
+  </mat-error>
+
+  <mat-error *ngIf="group.controls[field.name].hasError('max')">
+    Number must be less than {{ group.controls[field.name].getError('max').max}}!
+  </mat-error>
+
+  <mat-error *ngIf="group.controls[field.name].hasError('incorrectEmailFormat')">
+    Incorrect email format!
+  </mat-error>
+
+  <mat-error *ngIf="group.controls[field.name].hasError('notMatchingPassword')">
+    Password do not match!
+  </mat-error>
+
+  <mat-error *ngIf="group.controls[field.name].hasError('incorrectPassword')">
+    Incorrect password!
+  </mat-error>
+
+  <mat-error *ngIf="group.controls[field.name].hasError('incorrectPreviousPassword')">
+    Incorrect previous password!
+  </mat-error>
+
+  <mat-error *ngIf="group.controls[field.name].hasError('shortPassword')">
+    Password length must be more than 6 symbols!
+  </mat-error>
+
+  <mat-error *ngIf="group.controls[field.name].hasError('longPassword')">
+    Password length must be less than 50 symbols!
+  </mat-error>
+
+  <mat-error *ngIf="group.controls[field.name].hasError('withoutNumberPassword')">
+    Password must contain numbers!
+  </mat-error>
+
+  <mat-error *ngIf="group.controls[field.name].hasError('withoutLetterPassword')">
+    Password must contain letters!
+  </mat-error>
+
+  <mat-error *ngIf="group.controls[field.name].hasError('incorrectCharPassword')">
+    Password must contain no such symbols (!, @, #, $, %, ^, &, *, (, ), _, +)!
+  </mat-error>
+</mat-form-field>

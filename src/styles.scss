@@ -1,0 +1,87 @@
+@import url('https://fonts.googleapis.com/css?family=Roboto:300,400,500&amp;display=swap');
+@import url('https://fonts.googleapis.com/icon?family=Material+Icons');
+@import "app/shared/styles/variables";
+@import "app/shared/styles/mixins";
+@import "./themes.scss";
+
+
+*,
+*:after,
+*:before {
+  margin: 0;
+  padding: 0;
+  font-weight: 500;
+  box-sizing: inherit;
+  -webkit-tap-highlight-color: transparent;
+}
+
+html {
+  height: 100%;
+  font-size: 62.5%;
+}
+
+body {
+  height: inherit;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+  box-sizing: border-box;
+}
+
+// scrollbar
+perfect-scrollbar {
+  .ps {
+    height: inherit !important;
+    max-height: inherit !important;
+
+    &-content {
+      height: inherit !important;
+      max-height: inherit !important;
+    }
+  }
+}
+
+// material customization
+
+// snackbar
+.mat-snack-bar-container {
+  margin-bottom: 6rem !important;
+  font-size: 1.6rem !important;
+
+  simple-snack-bar {
+    justify-content: center !important;
+
+    span {
+      word-break: break-word !important;
+      text-align: center;
+    }
+  }
+}
+
+// input
+.mat-form-field-label {
+  color: inherit !important;
+}
+
+// radio button
+.mat-radio-label {
+  border-color: inherit !important;
+
+  .mat-radio-container {
+    border-color: inherit !important;
+
+    .mat-radio-outer-circle {
+      border-color: inherit !important;
+    }
+  }
+}
+
+// dialog
+.mat-dialog-container {
+  height: 12rem !important;
+  width: 35rem !important;
+  padding: 0 !important;
+}
+
+.mat-dialog-actions {
+  width: 100% !important;
+  justify-content: flex-end !important;
+}

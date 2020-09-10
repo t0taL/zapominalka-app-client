@@ -1,0 +1,96 @@
+@import "src/app/shared/styles/variables";
+@import "src/app/shared/styles/mixins";
+
+
+.word-item {
+  width: 100%;
+  margin-bottom: 1rem;
+  border: .2rem solid;
+  border-radius: .5rem;
+  font-size: 1.6rem;
+  overflow: hidden;
+
+  &__main-content {
+    display: flex;
+    height: 3.6rem;
+    width: inherit;
+    border-color: inherit;
+
+    & > * {
+      flex-shrink: 0;
+    }
+
+    &__locale {
+      display: flex;
+      height: inherit;
+      width: 3.6rem;
+      align-items: center;
+      justify-content: center;
+      border-right: .2rem solid;
+      border-color: inherit;
+    }
+
+    &__value {
+      display: flex;
+      height: inherit;
+      width: 19.5rem;
+      padding: 0 1rem;
+      align-items: center;
+      justify-content: space-between;
+      border-right: .2rem solid;
+      border-color: inherit;
+
+      span {
+        &:first-child {
+          @include long-text-hide;
+        }
+
+        &:last-child {
+          width: min-content;
+        }
+      }
+    }
+
+    &__actions {
+      display: flex;
+      height: 100%;
+      width: 3.6rem;
+      align-items: center;
+      justify-content: center;
+
+      & > * {
+        height: 2.4rem;
+        width: 2.4rem;
+        @include link-button;
+      }
+    }
+  }
+
+  &__ext-content {
+    border-color: inherit;
+
+    &__translation {
+      display: flex;
+      height: 3.6rem;
+      padding: 0 3.5rem;
+      align-items: center;
+      border-top: .2rem solid;
+      border-color: inherit;
+    }
+
+    &__actions {
+      display: flex;
+      height: 3.6rem;
+      align-items: center;
+      justify-content: space-around;
+      border-top: .2rem solid;
+      border-color: inherit;
+
+      & > * {
+        height: 2.4rem;
+        width: 2.4rem;
+        @include link-button;
+      }
+    }
+  }
+}

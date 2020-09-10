@@ -1,0 +1,47 @@
+<div class="image-upload">
+  <app-avatar 
+    size="20rem"
+    colorClass="mdt-pr-color"
+    bgColorClass="mdt-ac-bg-color"
+    borderColorClass="mdt-pr-border-color"
+    [imageSrc]="(imageSrc$ | async)"
+  >
+  </app-avatar>
+
+  <div class="image-upload__actions">
+    <div class="actions-wrapper mdt-ac-bg-color mdt-pr-border-color">
+      <mat-icon
+        matTooltip="Upload new image"
+        matTooltipPosition="right"
+        class="mdt-pr-color"
+        (click)="fileInput.click()"
+      >
+        get_app
+      </mat-icon>
+  
+      <mat-icon
+        matTooltip="Return previous image"
+        matTooltipPosition="right"
+        class="mdt-pr-color"
+        (click)="returnPreviousImage()"
+      >
+        replay
+      </mat-icon>
+  
+      <mat-icon
+        matTooltip="Remove image"
+        matTooltipPosition="right"
+        class="mdt-pr-color"
+        (click)="removeImage()"
+      >
+        delete
+      </mat-icon>
+    </div>
+  </div>
+
+  <div class="image-upload__error" *ngIf="isError">
+    <span>{{ errorText }}</span>
+  </div>
+</div>
+
+<input #fileInput [hidden]="true" type="file" (change)="imageUpload()">

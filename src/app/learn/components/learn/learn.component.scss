@@ -1,0 +1,31 @@
+@import "src/app/shared/styles/variables";
+@import "src/app/shared/styles/mixins";
+
+
+:host {
+  @include host-container;
+}
+
+.word {
+  display: flex;
+  height: 8rem;
+  align-items: center;
+  justify-content: center;
+
+  span {
+    background-color: inherit;
+    font-size: 6rem;
+  }
+
+  &__pending-status {
+    color: inherit;
+  }
+  
+  &__success-status {
+    color: $correct-color;
+  }
+  
+  &__fail-status {
+    color: $error-color;
+  }
+}
