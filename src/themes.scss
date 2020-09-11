@@ -10,12 +10,8 @@
 @import "app/shared/styles/mat-palettes/light-blue";
 @import "app/shared/styles/mat-palettes/dark-blue";
 
-@import "app/shared/styles/mat-palettes/light-yellow";
-@import "app/shared/styles/mat-palettes/dark-yellow";
-
-@import "app/shared/styles/mat-palettes/light-red";
-@import "app/shared/styles/mat-palettes/dark-red";
-
+@import "app/shared/styles/mat-palettes/light-purple";
+@import "app/shared/styles/mat-palettes/dark-purple";
 
 
 @include mat-core();
@@ -31,7 +27,6 @@
   @include mat-dynamic-theme($dark-default-theme);
 }
 
-
 // green themes
 .light-green-theme {
   @include angular-material-theme($light-green-theme);
@@ -43,7 +38,7 @@
   @include mat-dynamic-theme($dark-green-theme);
 }
 
-// blue themes
+// purple blue
 .light-blue-theme {
   @include angular-material-theme($light-blue-theme);
   @include mat-dynamic-theme($light-blue-theme);
@@ -54,24 +49,13 @@
   @include mat-dynamic-theme($dark-blue-theme);
 }
 
-// yellow themes
-.light-yellow-theme {
-  @include angular-material-theme($light-yellow-theme);
-  @include mat-dynamic-theme($light-yellow-theme);
+// purple themes
+.light-purple-theme {
+  @include angular-material-theme($light-purple-theme);
+  @include mat-dynamic-theme($light-purple-theme);
 }
 
-.dark-yellow-theme {
-  @include angular-material-theme($dark-yellow-theme);
-  @include mat-dynamic-theme($dark-yellow-theme);
-}
-
-// red themes
-.light-red-theme {
-  @include angular-material-theme($light-red-theme);
-  @include mat-dynamic-theme($light-red-theme);
-}
-
-.dark-red-theme {
-  @include angular-material-theme($dark-red-theme);
-  @include mat-dynamic-theme($dark-red-theme);
+.dark-purple-theme {
+  @include angular-material-theme($dark-purple-theme);
+  @include mat-dynamic-theme($dark-purple-theme);
 }

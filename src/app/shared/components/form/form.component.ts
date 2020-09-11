@@ -60,7 +60,7 @@ export class FormComponent implements OnInit, OnDestroy {
   }
 
   private patchValue = ([formGroup, formData]: [FormGroup, any]) => {
-    if (formData !== null) {
+    if (formData !== null && formData !== undefined) {
       formGroup.patchValue(formData);
     } else {
       formGroup.patchValue({}, { emitEvent: false });

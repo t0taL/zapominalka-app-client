@@ -15,12 +15,14 @@ import { IField } from '../../models/field.model';
 import { FieldTypes } from '../../enums/field-types';
 
 import { InputComponent } from './input/input.component';
+import { ChipsInputComponent } from './chips-input/chips-input.component';
 import { ImageUploadComponent } from './image-upload/image-upload.component';
 import { RadioComponent } from './radio/radio.component';
 
 
 const componentsMapper: { [key: string]: Type<any> } = {
   [FieldTypes.INPUT]: InputComponent,
+  [FieldTypes.CHIPS_INPUT]: ChipsInputComponent,
   [FieldTypes.RADIO]: RadioComponent,
   [FieldTypes.IMAGE_UPLOAD]: ImageUploadComponent
 };

@@ -1,0 +1,38 @@
+<mat-form-field [formGroup]="group" class="mdt-pr-color">
+  <mat-chip-list #chipList>
+    <mat-chip
+      *ngFor="let value of values"
+      [selectable]="true"
+      [removable]="true"
+      class="mdt-pr-bg-color"
+      (removed)="remove(value)"
+    >
+      <span>{{ value }}</span>
+
+      <mat-icon matChipRemove>cancel</mat-icon>
+    </mat-chip>
+
+    <input
+      #inputElement
+      [matChipInputFor]="chipList"
+      [matChipInputAddOnBlur]="true"
+      [placeholder]="field?.attrs?.placeholder"
+      (matChipInputTokenEnd)="add($event)"
+    >
+
+    <button
+      mat-button
+      matSuffix
+      mat-icon-button
+      tabindex="-1"
+      *ngIf="inputElement.value.length > 0"
+      (click)="add(inputElement.value)"
+    >
+      <mat-icon>add</mat-icon>
+    </button>
+  </mat-chip-list>
+
+  <mat-error *ngIf="group.controls[field.name].hasError('required')">
+    Field is not filled!
+  </mat-error>
+</mat-form-field>

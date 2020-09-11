@@ -26,6 +26,7 @@
   margin-right: .5rem;
   align-items: center;
   justify-content: center;
+  @include link-button;
   @if $color {
     color: $color
   }
@@ -54,13 +55,13 @@
 
   .mdt-ac-bg-color { background-color: mat-color($accent, 900) !important; }
 
-  .mdt-pr-hover:hover { background-color: mat-color($accent, 700) !important; }
+  .mdt-pr-hover:hover { background-color: mat-color($primary, 700) !important; }
 
-  .mdt-ac-hover:hover { background-color: mat-color($primary, 700) !important; }
+  .mdt-ac-hover:hover { background-color: mat-color($accent, 700) !important; }
 
-  .mdt-pr-active.active { background-color: mat-color($accent, 900) !important; }
+  .mdt-pr-active.active { background-color: mat-color($primary, 900) !important; }
 
-  .mdt-ac-active.active { background-color: mat-color($primary, 900) !important; }
+  .mdt-ac-active.active { background-color: mat-color($accent, 900) !important; }
 
   .mdt-pr-border-color { border-color: mat-color($primary, A100) !important; }
 

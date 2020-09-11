@@ -1,0 +1,76 @@
+@import "~@angular/material/theming";
+
+
+$purple-primary-palette: (
+  50: #eae7ef,
+  100: #cac4d7,
+  200: #a79dbc,
+  300: #8476a1,
+  400: #69588c,
+  500: #4f3b78,
+  600: #483570,
+  700: #3f2d65,
+  800: #36265b,
+  900: #261948,
+  A100: #c4bbf0,
+  A200: #c4bbf0,
+  A400: #c4bbf0,
+  A700: #c4bbf0,
+
+  contrast: (
+    50: #000000,
+    100: #000000,
+    200: #000000,
+    300: #ffffff,
+    400: #ffffff,
+    500: #ffffff,
+    600: #ffffff,
+    700: #ffffff,
+    800: #ffffff,
+    900: #ffffff,
+    A100: #c4bbf0,
+    A200: #c4bbf0,
+    A400: #c4bbf0,
+    A700: #c4bbf0,
+  )
+);
+
+$purple-accent-palette: ( 
+  50: #e7e7ea,
+  100: #c3c4ca,
+  200: #9b9da7,
+  300: #727683,
+  400: #545869,
+  500: #363b4e,
+  600: #303547,
+  700: #292d3d,
+  800: #222635,
+  900: #161925,
+  A100: #4f3b78,
+  A200: #4f3b78,
+  A400: #4f3b78,
+  A700: #4f3b78,
+
+  contrast: (
+    50: #000000,
+    100: #000000,
+    200: #000000,
+    300: #ffffff,
+    400: #ffffff,
+    500: #ffffff,
+    600: #ffffff,
+    700: #ffffff,
+    800: #ffffff,
+    900: #ffffff,
+    A100: #4f3b78,
+    A200: #4f3b78,
+    A400: #4f3b78,
+    A700: #4f3b78,
+  )
+);
+
+$dark-purple-primary: mat-palette($purple-primary-palette);
+$dark-purple-accent: mat-palette($purple-accent-palette, A200, A100, A400);
+$dark-purple-warn: mat-palette($mat-red);
+
+$dark-purple-theme: mat-dark-theme($dark-purple-primary, $dark-purple-accent, $dark-purple-warn);

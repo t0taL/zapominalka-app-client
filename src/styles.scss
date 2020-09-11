@@ -42,8 +42,10 @@ perfect-scrollbar {
 // material customization
 
 // snackbar
+.cdk-overlay-pane {
+  margin-bottom: 5rem !important;
+}
 .mat-snack-bar-container {
-  margin-bottom: 6rem !important;
   font-size: 1.6rem !important;
 
   simple-snack-bar {
@@ -59,6 +61,11 @@ perfect-scrollbar {
 // input
 .mat-form-field-label {
   color: inherit !important;
+}
+
+// chip
+.mat-standard-chip {
+  border: .2rem solid !important;
 }
 
 // radio button

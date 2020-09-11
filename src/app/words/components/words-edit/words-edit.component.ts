@@ -12,8 +12,6 @@ import { ColorTypes } from '@shared/enums/color-types';
 
 import { editWordFields } from './words-edit.form-fields';
 
-import { wordTranslationToFormAdapter } from '@words/utils/word-form-adapter';
-
 
 @Component({
   selector: 'app-words-edit',
@@ -43,9 +41,7 @@ export class WordsEditComponent implements OnInit, OnDestroy {
       this.router.navigate(['/words']);
     }
 
-    this.data$ = of(wordTranslationToFormAdapter(editingWord));
-
-    // this.data$ = this.activatedRoute.paramMap.pipe(map(() => wordTranslationToFormAdapter(window.history.state.data)));
+    this.data$ = of(editingWord);
   }
 
   ngOnDestroy(): void {

@@ -26,6 +26,5 @@
   &__sounds {
     margin-left: auto;
     @include progress-bar-item(null);
-    @include link-button;
   }
 }

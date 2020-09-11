@@ -13,7 +13,6 @@ import * as WordsActions from './words.actions';
 
 import { HttpErrorResponse } from '@angular/common/http';
 
-import { wordTranslationFromFormAdapter } from '@words/utils/word-form-adapter';
 import {
   IGetWordsResponse,
   IAddWordResponse,
@@ -55,7 +54,7 @@ export class WordsEffects {
       ofType(WordsActions.addWord),
       withLatestFrom(this.sharedFacade.formData$),
       switchMap(([action, formData]) => {
-        const addWordRequest: IAddWordRequest = { word: wordTranslationFromFormAdapter(formData) };
+        const addWordRequest: IAddWordRequest = { word: formData };
         return this.wordsService.addWord(addWordRequest)
           .pipe(
             map((response: IAddWordResponse) => {
@@ -77,7 +76,7 @@ export class WordsEffects {
       ofType(WordsActions.editWord),
       withLatestFrom(this.sharedFacade.formData$),
       switchMap(([action, formData]) => {
-        const editWordRequest: IEditWordRequest = { word: wordTranslationFromFormAdapter(formData) };
+        const editWordRequest: IEditWordRequest = { word: formData };
         return this.wordsService.editWord(editWordRequest)
           .pipe(
             map((response: IEditWordResponse) => {

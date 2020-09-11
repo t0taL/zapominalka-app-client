@@ -18,6 +18,9 @@ export class TokenInterceptorService implements HttpInterceptor {
     return next.handle(this.addToken(req, token))
       .pipe(
         catchError((error: HttpErrorResponse) => {
+          if (error.status === 0) {
+            this.router.navigate(['/info'], { state: { data: 'Connection problem... Try again later' } });
+          }
           if (error.status === 401 && !this.router.routerState.snapshot.url.includes('/auth/change-password')) {
             this.localStorageService.clearToken();
             this.router.navigate(['/auth', 'sign-in']);

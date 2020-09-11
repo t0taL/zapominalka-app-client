@@ -27,13 +27,10 @@ export const editWordFields: IField[] = [
     attrs: { clearButton: true }
   },
   {
-    type: FieldTypes.INPUT,
+    type: FieldTypes.CHIPS_INPUT,
     name: 'translation',
     label: 'Translation',
     validators: [ Validators.required, Validators.maxLength(2000) ],
-    attrs: {
-      placeholder: 'translation1, translation2, ..., translationN',
-      clearButton: true
-    }
+    attrs: { required: true, placeholder: 'Translation...' }
   }
 ];

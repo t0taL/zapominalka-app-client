@@ -36,10 +36,8 @@ export const editSettingsFields: IField[] = [
         { value: Themes.DARK_GREEN, viewValue: getThemeName(Themes.DARK_GREEN) },
         { value: Themes.LIGHT_BLUE, viewValue: getThemeName(Themes.LIGHT_BLUE) },
         { value: Themes.DARK_BLUE, viewValue: getThemeName(Themes.DARK_BLUE) },
-        { value: Themes.LIGHT_YELLOW, viewValue: getThemeName(Themes.LIGHT_YELLOW) },
-        { value: Themes.DARK_YELLOW, viewValue: getThemeName(Themes.DARK_YELLOW) },
-        { value: Themes.LIGHT_RED, viewValue: getThemeName(Themes.LIGHT_RED) },
-        { value: Themes.DARK_RED, viewValue: getThemeName(Themes.DARK_RED) }
+        { value: Themes.LIGHT_PURPLE, viewValue: getThemeName(Themes.LIGHT_PURPLE) },
+        { value: Themes.DARK_PURPLE, viewValue: getThemeName(Themes.DARK_PURPLE) }
       ],
       customWidth: '50%'
     }

@@ -8,6 +8,7 @@ import { MatMenuModule } from '@angular/material/menu';
 import { MatInputModule } from '@angular/material/input';
 import { MatRadioModule } from '@angular/material/radio';
 import { MatButtonModule } from '@angular/material/button';
+import { MatChipsModule } from '@angular/material/chips';
 import { MatIconModule } from '@angular/material/icon';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { MatProgressBarModule } from '@angular/material/progress-bar';
@@ -41,6 +42,7 @@ import { AvatarComponent } from './components/avatar/avatar.component';
 import { InfoItemComponent } from './components/info-item/info-item.component';
 import { ItemsGroupComponent } from './components/items-group/items-group.component';
 import { WordItemComponent } from './components/word-item/word-item.component';
+import { ChipsInputComponent } from './components/form/chips-input/chips-input.component';
 
 
 const DEFAULT_PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {
@@ -66,7 +68,8 @@ const DEFAULT_PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {
     AvatarComponent,
     InfoItemComponent,
     ItemsGroupComponent,
-    WordItemComponent
+    WordItemComponent,
+    ChipsInputComponent
   ],
   imports: [
     CommonModule,
@@ -77,6 +80,7 @@ const DEFAULT_PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {
     MatInputModule,
     MatRadioModule,
     MatButtonModule,
+    MatChipsModule,
     MatIconModule,
     MatSnackBarModule,
     MatProgressBarModule,
