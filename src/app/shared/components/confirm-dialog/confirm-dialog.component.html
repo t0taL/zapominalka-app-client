@@ -1,18 +1,16 @@
-<div class="wrapper mdt-pr-color mdt-ac-bg-color">
-  <h1 mat-dialog-title>{{ title }}</h1>
+<h1 mat-dialog-title>{{ title }}</h1>
 
-  <div mat-dialog-actions>
-    <app-button
-      [color]="colorTypes.PRIMARY"
-      (clickEvent)="confirm()"
-    >
-      Confirm
-    </app-button>
+<div class="actions" mat-dialog-actions>
+  <app-button
+    [color]="colorTypes.BASIC"
+    (clickEvent)="confirm()"
+  >
+    Confirm
+  </app-button>
 
-    <app-link
-      (clickEvent)="cancel()"
-    >
-      Cancel
-    </app-link>
-  </div>
+  <app-link
+    (clickEvent)="cancel()"
+  >
+    Cancel
+  </app-link>
 </div>

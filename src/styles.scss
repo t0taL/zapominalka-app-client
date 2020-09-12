@@ -45,11 +45,13 @@ perfect-scrollbar {
 .cdk-overlay-pane {
   margin-bottom: 5rem !important;
 }
-.mat-snack-bar-container {
-  font-size: 1.6rem !important;
+
+.notification-snack-bar {
+  font-size: 1.6rem;
+  text-align: center;
 
   simple-snack-bar {
-    justify-content: center !important;
+    justify-content: center;
 
     span {
       word-break: break-word !important;
@@ -82,13 +84,11 @@ perfect-scrollbar {
 }
 
 // dialog
-.mat-dialog-container {
-  height: 12rem !important;
-  width: 35rem !important;
-  padding: 0 !important;
+.confirm-dialog {
+  .mat-dialog-container {
+    border: .2rem solid;
+    color: inherit !important;
+    background-color: inherit !important;
+  }
 }
 
-.mat-dialog-actions {
-  width: 100% !important;
-  justify-content: flex-end !important;
-}

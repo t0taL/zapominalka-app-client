@@ -9,7 +9,9 @@ export class CustomValidators {
 
   static password(control: FormControl): { [key: string]: boolean } {
     const value = control.value;
+
     CustomValidators._password = value;
+
     if (value !== null) {
       if (value.length < 6) {
         return({ shortPassword: true });
@@ -23,22 +25,29 @@ export class CustomValidators {
         return({ incorrectCharPassword: true });
       }
     }
+
     return null;
   }
 
   static confirmPassword(control: FormControl): { [key: string]: boolean } {
     const value = control.value;
+
     if (value !== CustomValidators._password) {
       return { notMatchingPassword: true };
     }
+
     return null;
   }
 
   static email(control: FormControl): { [key: string]: boolean } {
     const value = control.value;
-    if (!value.match(/^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/) && value !== '') {
-      return { incorrectEmailFormat: true };
+
+    if (value !== '' && value !== null) {
+      if (!value.match(/^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/)) {
+        return { incorrectEmailFormat: true };
+      }
     }
+
     return null;
   }
 }

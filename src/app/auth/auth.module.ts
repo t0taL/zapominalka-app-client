@@ -8,7 +8,6 @@ import { SharedModule } from '@shared/shared.module';
 import { AuthRoutingModule } from './auth-routing.module';
 
 import { AuthService } from './services/auth.service';
-import { LocalStorageJwtService } from './services/local-storage-jwt.service';
 import { TokenInterceptorService } from './services/token-interceptor.service';
 
 import { authFeatureKey, authReducer, authInitialState } from './+state/auth.reducer';
@@ -22,7 +21,12 @@ import { ChangePasswordComponent } from './components/change-password/change-pas
 
 
 @NgModule({
-  declarations: [ SignInComponent, SignUpComponent, ResetPasswordComponent, ChangePasswordComponent ],
+  declarations: [
+    SignInComponent,
+    SignUpComponent,
+    ResetPasswordComponent,
+    ChangePasswordComponent
+  ],
   imports: [
     CommonModule,
     SharedModule,
@@ -33,7 +37,6 @@ import { ChangePasswordComponent } from './components/change-password/change-pas
   ],
   providers: [
     AuthService,
-    LocalStorageJwtService,
     {
       provide: HTTP_INTERCEPTORS,
       useClass: TokenInterceptorService,

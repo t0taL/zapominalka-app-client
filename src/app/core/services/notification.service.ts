@@ -13,7 +13,7 @@ export class NotificationService {
       duration,
       verticalPosition: 'bottom',
       horizontalPosition: 'center',
-      panelClass: ['mdt-pr-color', 'mdt-pr-bg-color']
+      panelClass: ['mdt-pr-color', 'mdt-pr-bg-color', 'notification-snack-bar']
     });
   }
 
@@ -22,7 +22,7 @@ export class NotificationService {
       duration,
       verticalPosition: 'bottom',
       horizontalPosition: 'center',
-      panelClass: ['mdt-pr-color', 'mdt-pr-bg-color']
+      panelClass: ['mdt-pr-color', 'mdt-pr-bg-color', 'notification-snack-bar']
     });
   }
 }

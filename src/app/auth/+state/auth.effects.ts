@@ -5,7 +5,8 @@ import { catchError, map, switchMap, withLatestFrom, tap } from 'rxjs/operators'
 import { Actions, createEffect, ofType } from '@ngrx/effects';
 
 import { AuthService } from '../services/auth.service';
-import { LocalStorageJwtService } from '../services/local-storage-jwt.service';
+import { ThemesService } from '@core/services/themes.service';
+import { LocalStorageService } from '@core/services/local-storage.service';
 import { NotificationService } from '@core/services/notification.service';
 
 import { SharedFacade } from '@shared/+state/shared.facade';
@@ -19,6 +20,9 @@ import {
   IPasswordResetResponse,
   IPasswordChangeResponse
 } from '@api/interfaces/auth/auth-response.interface';
+import { IAuthSettings } from '@api/models/user-data.model';
+
+import { Themes } from '@shared/enums/themes';
 
 
 @Injectable()
@@ -28,7 +32,11 @@ export class AuthEffects {
       ofType(AuthActions.getUser),
       switchMap(action => this.authService.getUser()
         .pipe(
-          map((response: IGetUserResponse) => AuthActions.getUserSuccess({ payload: response.userData })),
+          map((response: IGetUserResponse) => {
+            const theme: Themes = response.userData.settings.theme;
+            this.themesService.changeTheme(theme);
+            return AuthActions.getUserSuccess({ payload: response.userData });
+          }),
           catchError((error: HttpErrorResponse) => {
             return of(AuthActions.getUserFail({ payload: error }));
           })
@@ -44,7 +52,7 @@ export class AuthEffects {
       switchMap(([action, formData]) => this.authService.signIn(formData)
         .pipe(
           map((response: ISignInResponse) => {
-            this.localStorageJwtService.setToken(response.tokenData);
+            this.localStorageService.setToken(response.tokenData);
             this.router.navigate(['../home']);
             this.notificationService.showInfoMessage(`${response.userData.user.name}, welcome!`);
             return AuthActions.signInSuccess({ payload: response.userData });
@@ -67,7 +75,7 @@ export class AuthEffects {
         return this.authService.signUp({ email, name, password })
           .pipe(
             map((response: ISignUpResponse) => {
-              this.localStorageJwtService.setToken(response.tokenData);
+              this.localStorageService.setToken(response.tokenData);
               this.router.navigate(['../home']);
               this.notificationService.showInfoMessage(`${response.userData.user.name}, welcome!`);
               return AuthActions.signUpSuccess({ payload: response.userData });
@@ -123,11 +131,25 @@ export class AuthEffects {
     )
   );
 
+  updateAuthStateData$ = createEffect(() => this.actions$
+    .pipe(
+      ofType(AuthActions.updateAuthStateData),
+      tap(action => {
+        const stateKey = action.payload.stateKey;
+        if (stateKey === 'settings') {
+          const stateValue: IAuthSettings = action.payload.stateValue as IAuthSettings;
+          this.themesService.changeTheme(stateValue.theme);
+        }
+      })
+    ),
+    { dispatch: false }
+  );
+
   logout$ = createEffect(() => this.actions$
     .pipe(
       ofType(AuthActions.logout),
       tap(action => {
-        this.localStorageJwtService.clearToken();
+        this.localStorageService.clearTokenData();
         this.router.navigate(['/auth', 'sign-in']);
       })
     ),
@@ -139,7 +161,8 @@ export class AuthEffects {
     private router: Router,
     private sharedFacade: SharedFacade,
     private authService: AuthService,
-    private localStorageJwtService: LocalStorageJwtService,
+    private themesService: ThemesService,
+    private localStorageService: LocalStorageService,
     private notificationService: NotificationService
   ) {
   }

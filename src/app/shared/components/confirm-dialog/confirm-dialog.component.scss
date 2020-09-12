@@ -1,7 +1,18 @@
-.wrapper {
-  display: flex;
-  height: 100%;
-  padding: 1rem;
-  flex-direction: column;
-  align-items: center;
+h1 {
+  text-align: center;
+}
+
+.actions {
+  width: 100% !important;
+  justify-content: flex-end !important;
+
+  & > * {
+    margin: 0 .5rem;
+  }
+}
+
+@media screen and (max-width: 400px) {
+  .actions {
+    justify-content: center !important;
+  }
 }

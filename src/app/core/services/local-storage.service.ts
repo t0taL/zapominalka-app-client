@@ -2,12 +2,15 @@ import { Injectable } from '@angular/core';
 
 import { ITokenData } from '@api/models/token-data.model';
 
+import { Themes } from '@shared/enums/themes';
+
 
 @Injectable()
-export class LocalStorageJwtService {
+export class LocalStorageService {
   constructor() {
   }
 
+  // token actions
   getToken(): string {
     const expiresIn = localStorage.getItem('expiresIn');
     const expDate = new Date(expiresIn);
@@ -23,11 +26,21 @@ export class LocalStorageJwtService {
       localStorage.setItem('token', tokenData.token);
       localStorage.setItem('expiresIn', tokenData.expiresIn);
     } else {
-      localStorage.clear();
+      this.clearTokenData();
     }
   }
 
-  clearToken(): void {
-    localStorage.clear();
+  clearTokenData(): void {
+    localStorage.removeItem('token');
+    localStorage.removeItem('expiresIn');
+  }
+
+  // theme actions
+  getTheme(): Themes {
+    return localStorage.getItem('theme') as Themes || Themes.LIGHT_DEFAULT;
+  }
+
+  setTheme(theme: Themes): void {
+    localStorage.setItem('theme', theme);
   }
 }

@@ -4,12 +4,12 @@ import { Router } from '@angular/router';
 import { Observable, throwError } from 'rxjs';
 import { catchError } from 'rxjs/operators';
 
-import { LocalStorageJwtService } from './local-storage-jwt.service';
+import { LocalStorageService } from '@core/services/local-storage.service';
 
 
 @Injectable()
 export class TokenInterceptorService implements HttpInterceptor {
-  constructor(private localStorageService: LocalStorageJwtService, private router: Router) {
+  constructor(private localStorageService: LocalStorageService, private router: Router) {
   }
 
   intercept(req: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
@@ -22,7 +22,7 @@ export class TokenInterceptorService implements HttpInterceptor {
             this.router.navigate(['/info'], { state: { data: 'Connection problem... Try again later' } });
           }
           if (error.status === 401 && !this.router.routerState.snapshot.url.includes('/auth/change-password')) {
-            this.localStorageService.clearToken();
+            this.localStorageService.clearTokenData();
             this.router.navigate(['/auth', 'sign-in']);
           }
           return throwError(error);
@@ -32,9 +32,7 @@ export class TokenInterceptorService implements HttpInterceptor {
 
   private addToken(req: HttpRequest<any>, token: string): HttpRequest<any> {
     return req.clone({
-      setHeaders: {
-        Authorization: `Bearer ${token}`
-      }
+      setHeaders: { Authorization: `Bearer ${token}` }
     });
   }
 }

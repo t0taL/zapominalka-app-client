@@ -12,7 +12,6 @@ import { SharedFacade } from '@shared/+state/shared.facade';
 import * as WordsActions from './words.actions';
 
 import { HttpErrorResponse } from '@angular/common/http';
-
 import {
   IGetWordsResponse,
   IAddWordResponse,
@@ -28,6 +27,8 @@ import {
   ICompleteWordRequest,
   IReturnWordRequest
 } from '@api/interfaces/words/words-request.interface';
+
+import { CustomMatDialogConfig } from '@shared/utils/custom-mat-dialog-config';
 
 import { ConfirmDialogComponent } from '@shared/components/confirm-dialog/confirm-dialog.component';
 
@@ -97,9 +98,10 @@ export class WordsEffects {
     .pipe(
       ofType(WordsActions.openDeleteWordDialog),
       switchMap(action => {
-        const dialogRef = this.dialog.open(ConfirmDialogComponent, {
-          data: { title: 'The word will be deleted!', wordId: action.payload }
-        });
+        const dialogRef = this.dialog.open(
+          ConfirmDialogComponent,
+          CustomMatDialogConfig.getConfirmDialogConfig({ title: 'The word will be deleted!', wordId: action.payload })
+        );
         return dialogRef.afterClosed();
       }),
       map((wordId: string) => {
@@ -132,9 +134,10 @@ export class WordsEffects {
     .pipe(
       ofType(WordsActions.openCompleteWordDialog),
       switchMap(action => {
-        const dialogRef = this.dialog.open(ConfirmDialogComponent, {
-          data: { title: 'The word will be completed!', wordId: action.payload }
-        });
+        const dialogRef = this.dialog.open(
+          ConfirmDialogComponent,
+          CustomMatDialogConfig.getConfirmDialogConfig({ title: 'The word will be completed!', wordId: action.payload })
+        );
         return dialogRef.afterClosed();
       }),
       map((wordId: string) => {
@@ -167,9 +170,10 @@ export class WordsEffects {
     .pipe(
       ofType(WordsActions.openReturnWordDialog),
       switchMap(action => {
-        const dialogRef = this.dialog.open(ConfirmDialogComponent, {
-          data: { title: 'The word will be returned!', wordId: action.payload }
-        });
+        const dialogRef = this.dialog.open(
+          ConfirmDialogComponent,
+          CustomMatDialogConfig.getConfirmDialogConfig({ title: 'The word will be returned!', wordId: action.payload })
+        );
         return dialogRef.afterClosed();
       }),
       map((wordId: string) => {

@@ -1,4 +1,4 @@
-import { NgModule, Optional, SkipSelf } from '@angular/core';
+import { APP_INITIALIZER, NgModule, Optional, SkipSelf } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HttpClientModule } from '@angular/common/http';
@@ -7,7 +7,9 @@ import { RouterModule } from '@angular/router';
 import { ApiModule } from '@api/api.module';
 import { SharedModule } from '@shared/shared.module';
 
+import { LocalStorageService } from './services/local-storage.service';
 import { NotificationService } from './services/notification.service';
+import { ThemesService } from './services/themes.service';
 
 import { AuthGuard } from './guards/auth.guard';
 
@@ -41,7 +43,15 @@ import { InfoPageComponent } from './components/info-page/info-page.component';
     NavigationComponent
   ],
   providers: [
+    LocalStorageService,
     NotificationService,
+    ThemesService,
+    {
+      provide: APP_INITIALIZER,
+      useFactory: (themesService: ThemesService) => () => themesService.initService(),
+      deps: [ThemesService],
+      multi: true
+    },
     AuthGuard
   ]
 })

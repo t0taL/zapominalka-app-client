@@ -9,7 +9,7 @@ import { AuthFacade } from '@auth/+state/auth.facade';
 import * as UserProfileActions from './user-profile.actions';
 
 import { UserProfileService } from '../services/user-profile.service';
-import { LocalStorageJwtService } from '@auth/services/local-storage-jwt.service';
+import { LocalStorageService } from '@core/services/local-storage.service';
 import { NotificationService } from '@core/services/notification.service';
 
 import { HttpErrorResponse } from '@angular/common/http';
@@ -55,7 +55,7 @@ export class UserProfileEffects {
                 }
               };
               if (response.tokenData.token !== null) {
-                this.localStorageJwtService.setToken(response.tokenData);
+                this.localStorageService.setToken(response.tokenData);
               }
               this.router.navigate(['/user-profile']);
               this.notificationService.showInfoMessage('User profile has been successfully edited!');
@@ -99,7 +99,7 @@ export class UserProfileEffects {
     private authFacade: AuthFacade,
     private sharedFacade: SharedFacade,
     private userProfileService: UserProfileService,
-    private localStorageJwtService: LocalStorageJwtService,
+    private localStorageService: LocalStorageService,
     private notificationService: NotificationService
   ) {
   }
